@@ -7,7 +7,7 @@ ThemeSection:NewDropdown("Themes", "Select a Theme", {"LightTheme", "DarkTheme",
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Roblox Innovation Awards By Jeux45", currentOption)
 local MainTab = Window:NewTab("Main")
-local MainSection = MainTab:NewSection("Accesories")
+local MainSection = MainTab:NewSection("accessories")
 MainSection:NewButton("Golden Tucket Hat", "Gives you a Bucket Hat", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CenterPiece["CenterPiece_Stand"]["Meshes/Stand_Full_Cylinder.001"].CFrame
 end)
@@ -23,7 +23,7 @@ MainSection:NewButton("Fragmented Top Hat", "Gives You a Top Hat", function()
     wait(1)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block1.CFrame
 end)
-MainSection:NewButton("Gold 'n' White Curved Horns", "Gives you a Cool Accesorie", function()
+MainSection:NewButton("Gold 'n' White Curved Horns", "Gives you a Cool accessorie", function()
     game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "Roblox Innovation Awards",
 	Text = "Please Rejoin The Game To Get The Award"
