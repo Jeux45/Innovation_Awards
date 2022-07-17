@@ -1,48 +1,83 @@
+_G.Votes = {
+    Best_Content_Update = "";
+    Peoples_Choice = "";
+    Best_Use_Of_Avatar_Fashion = "";
+    Video_Star_Of_The_Year = "";
+}
+
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Roblox Innovation Awards By Jeux45", "DarkTheme")
 local LaunchTab = Window:NewTab("Customize")
 local ThemeSection = LaunchTab:NewSection("Themes")
-ThemeSection:NewLabel("Before Starting, Select Your Theme First")
-ThemeSection:NewDropdown("Themes", "Select a Theme", {"LightTheme", "DarkTheme", "GrapeTheme", "BloodTheme", "Ocean", "Midnight", "Sentinel", "Synapse"}, function(currentOption)
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Roblox Innovation Awards By Jeux45", currentOption)
-local MainTab = Window:NewTab("Main")
-local MainSection = MainTab:NewSection("accessories")
-MainSection:NewButton("Golden Tucket Hat", "Gives you a Bucket Hat", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CenterPiece["CenterPiece_Stand"]["Meshes/Stand_Full_Cylinder.001"].CFrame
-end)
-MainSection:NewButton("Circlet of Patience", "Gives you a Circlet", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Scavenger.Circlet.CFrame
-end)
-MainSection:NewButton("Fragmented Top Hat", "Gives You a Top Hat", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block2.CFrame
-    wait(1)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block3.CFrame
-    wait(1)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block4.CFrame
-    wait(1)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block1.CFrame
-end)
-MainSection:NewButton("Gold 'n' White Curved Horns", "Gives you a Cool accessorie", function()
-    game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "Roblox Innovation Awards",
-	Text = "Please Rejoin The Game To Get The Award"
-})
-end)
-MainSection:NewButton("Painted Gold Jacket", "Gived you a Jacket", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").VotingStand.VotingBooth.CFrame
-       game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "Roblox Innovation Awards",
-	Text = "Please Vote To Get The Award"
-})
-end)
-local PlayerTab = Window:NewTab("Player")
-local PlayerSection = PlayerTab:NewSection("Player")
-PlayerSection:NewSlider("WalkSpeed", "Gived you Walkspeed", 200, 16, function(s)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
-PlayerSection:NewSlider("JumpPower", "Gived you JumpPower", 200, 20, function(s)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-    game.Players.LocalPlayer.Character.Humanoid.JumpHeight = s
-    end)
-end)
+    ThemeSection:NewLabel("Before Starting, Select Your Theme First")
+    ThemeSection:NewDropdown("Themes", "Select a Theme", {"LightTheme", "DarkTheme", "GrapeTheme", "BloodTheme", "Ocean", "Midnight", "Sentinel", "Synapse"}, function(currentOption)
+        local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+        local Window = Library.CreateLib("Roblox Innovation Awards By Jeux45", currentOption)
+        local MainTab = Window:NewTab("Main")
+        local MainSection = MainTab:NewSection("accessories")
+            MainSection:NewButton("Golden Tucket Hat", "Gives you a Bucket Hat", function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CenterPiece["CenterPiece_Stand"]["Meshes/Stand_Full_Cylinder.001"].CFrame
+            end)
+            MainSection:NewButton("Circlet of Patience", "Gives you a Circlet", function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Scavenger.Circlet.CFrame
+            end)
+        MainSection:NewButton("Fragmented Top Hat", "Gives You a Top Hat", function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block2.CFrame
+            wait(0.5)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block3.CFrame
+            wait(0.5)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block4.CFrame
+            wait(0.5)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block1.CFrame
+        end)
+        MainSection:NewButton("Gold 'n' White Curved Horns", "Gives you a Cool accessorie", function()
+            game:GetService("StarterGui"):SetCore("SendNotification",{
+        	Title = "Roblox Innovation Awards",
+        	Text = "Please Rejoin The Game To Get The Award"
+        })
+        end)
+            local VoteSection = MainTab:NewSection("Vote For The Painted Gold Jacket")
+            VoteSection:NewDropdown("Best Content Update", "Votes for you", {"Tower Defense", "Loomian Legacy - Beach Update", "Jailbreak - Live Update Events", "Piggy - Breakout"}, function(Vote)
+                _G.Votes.Best_Content_Update = Vote
+            end)
+            
+            VoteSection:NewDropdown("People's Choice", "Votes for you", {"BedWars", "Adopt Me", "Pet Sim x", "Brookhaven"}, function(Vote)
+                _G.Votes.Peoples_Choice = Vote
+            end)
+            
+            VoteSection:NewDropdown("Best Use Of Avatar Fashion", "Votes for you", {"World // Zero", "Gacha Online", "Royale High", "Mermaid Life"}, function(Vote)
+                _G.Votes.Best_Use_Of_Avatar_Fashion = Vote
+            end)
+            
+            VoteSection:NewDropdown("Video Star Of The Year", "Votes for you", {"Lyna", "LankyBox", "ItsFunneh", "Flamingo"}, function(Vote)
+                _G.Votes.Video_Star_Of_The_Year = Vote
+            end)
+            
+                VoteSection:NewButton("Sumbit Vote", "Sumbits The Votes for you", function()
+                 -- Script generated by SimpleSpy - credits to exx#9394
+
+local args = {
+    [1] = {
+        ["People's Choice"] = _G.Votes.Peoples_Choice,
+        ["Best Use of Avatar Fashion"] = _G.Votes.Best_Use_Of_Avatar_Fashion,
+        ["Best Content Update"] = _G.Votes.Best_Content_Update,
+        ["Video Star of the Year"] = _G.Votes.Video_Star_Of_The_Year
+    },
+    [2] = workspace.VotingScreen
+}
+
+game:GetService("ReplicatedStorage").Events.RemoteEvents.Vote:FireServer(unpack(args))
+
+                    end)
+            
+        local PlayerTab = Window:NewTab("Player")
+        local PlayerSection = PlayerTab:NewSection("Player")
+        PlayerSection:NewSlider("WalkSpeed", "Gived you Walkspeed", 200, 16, function(s)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+        end)
+        PlayerSection:NewSlider("JumpPower", "Gived you JumpPower", 200, 20, function(s)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+            game.Players.LocalPlayer.Character.Humanoid.JumpHeight = s
+        end)
+        end)
