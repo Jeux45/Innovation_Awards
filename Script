@@ -1,0 +1,48 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Roblox Innovation Awards By Jeux45", "DarkTheme")
+local LaunchTab = Window:NewTab("Customize")
+local ThemeSection = LaunchTab:NewSection("Themes")
+ThemeSection:NewLabel("Before Starting, Select Your Theme First")
+ThemeSection:NewDropdown("Themes", "Select a Theme", {"LightTheme", "DarkTheme", "GrapeTheme", "BloodTheme", "Ocean", "Midnight", "Sentinel", "Synapse"}, function(currentOption)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Roblox Innovation Awards By Jeux45", currentOption)
+local MainTab = Window:NewTab("Main")
+local MainSection = MainTab:NewSection("Accesories")
+MainSection:NewButton("Golden Tucket Hat", "Gives you a Bucket Hat", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CenterPiece["CenterPiece_Stand"]["Meshes/Stand_Full_Cylinder.001"].CFrame
+end)
+MainSection:NewButton("Circlet of Patience", "Gives you a Circlet", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Scavenger.Circlet.CFrame
+end)
+MainSection:NewButton("Fragmented Top Hat", "Gives You a Top Hat", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block2.CFrame
+    wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block3.CFrame
+    wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block4.CFrame
+    wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CubePieces.Block1.CFrame
+end)
+MainSection:NewButton("Gold 'n' White Curved Horns", "Gives you a Cool Accesorie", function()
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Roblox Innovation Awards",
+	Text = "Please Rejoin The Game To Get The Award"
+})
+end)
+MainSection:NewButton("Painted Gold Jacket", "Gived you a Jacket", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").VotingStand.VotingBooth.CFrame
+       game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Roblox Innovation Awards",
+	Text = "Please Vote To Get The Award"
+})
+end)
+local PlayerTab = Window:NewTab("Player")
+local PlayerSection = PlayerTab:NewSection("Player")
+PlayerSection:NewSlider("WalkSpeed", "Gived you Walkspeed", 200, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+PlayerSection:NewSlider("JumpPower", "Gived you JumpPower", 200, 20, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    game.Players.LocalPlayer.Character.Humanoid.JumpHeight = s
+    end)
+end)
